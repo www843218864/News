@@ -12,23 +12,29 @@
         android:layout_height="0dp"
         android:layout_weight="1"
        />
+
+
+
     <RadioGroup
         android:orientation="horizontal"
         android:id="@+id/rg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
        <RadioButton
-
+           android:textColor="@drawable/pion"
+           android:drawablePadding="-10dp"
            android:gravity="center"
            android:button="@null"
            android:text="首页"
-           android:drawableTop="@mipmap/w3"
+           android:drawableTop="@drawable/home_selector"
            android:id="@+id/homeRB"
            android:layout_width="0dp"
            android:layout_height="wrap_content"
            android:layout_weight="1"/>
         <RadioButton
-            android:drawableTop="@mipmap/wa"
+            android:textColor="@drawable/pion"
+            android:drawablePadding="-10dp"
+            android:drawableTop="@drawable/vedio_selector"
             android:gravity="center"
             android:text="视频"
             android:button="@null"
@@ -37,7 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
         <RadioButton
-            android:drawableTop="@mipmap/w1"
+            android:textColor="@drawable/pion"
+            android:drawablePadding="-10dp"
+            android:drawableTop="@drawable/focus_selector"
             android:gravity="center"
             android:text="关注"
             android:button="@null"
@@ -46,7 +54,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
         <RadioButton
-            android:drawableTop="@mipmap/w7"
+            android:textColor="@drawable/pion"
+            android:drawablePadding="-10dp"
+            android:drawableTop="@drawable/login_selector"
             android:gravity="center"
             android:text="登录"
             android:button="@null"
