@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.List;
 
+
 /**
  * 1.类的用途：
  * 2.作者：闫雷
@@ -25,6 +26,7 @@ public class MyAdapter extends FragmentPagerAdapter{
         this.list = list;
         this.title = title;
     }
+
 
     @Override
     public Fragment getItem(int position) {

@@ -14,11 +14,13 @@ import com.bwie.newstitleyanlei.R;
  * 2.作者：闫雷
  * 3.2017/2/10 9:50
  */
-public class FocusFragment extends Fragment{
+public class FocusFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=View.inflate(getActivity(), R.layout.focus_fragment,null);
+        View view = View.inflate(getActivity(), R.layout.focus_fragment, null);
+
+
 
         return view;
     }
