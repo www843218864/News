@@ -30,7 +30,7 @@ public class WebViewActivity extends Activity {
 
         Intent intent = getIntent();
         String url = intent.getStringExtra("url");
-        Log.e("news",url);
+  //      Log.e("news",url);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient(){
             @Override

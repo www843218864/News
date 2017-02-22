@@ -31,11 +31,13 @@ public class HomeFragment extends Fragment {
 
     private String[] title = {"推荐", "足球", "娱乐", "体育", "财经", "科技", "电影", "汽车"};
     private String[] str = {"T1348647909107", "T1399700447917", "T1348648517839", "T1348649079062", "T1348648756099", "T1348649580692", "T1348648650048", "T1348654060988"};
-    private List<Fragment> list = new ArrayList<>();
+    private List<Fragment> list=null;
+    private MyAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         View view = View.inflate(getActivity(), R.layout.home_fragment, null);
         tab = (TabLayout) view.findViewById(R.id.tab);
         pager = (ViewPager) view.findViewById(R.id.home_pager);
@@ -44,24 +46,25 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        list = new ArrayList<>();
         for (int i = 0; i < title.length; i++) {
-
-
             NewsFragment fragment = new NewsFragment();
             Bundle bundle=new Bundle();
             bundle.putString("id",str[i]);
             fragment.setArguments(bundle);
             list.add(fragment);
         }
-        MyAdapter adapter = new MyAdapter(getActivity().getSupportFragmentManager(), list, title);
+        adapter = new MyAdapter(getActivity().getSupportFragmentManager(), list, title);
         pager.setAdapter(adapter);
         tab.setTabMode(TabLayout.MODE_SCROLLABLE);
         tab.setupWithViewPager(pager);
-    }
 
+    }
 
 
 }

@@ -1,6 +1,5 @@
 package com.bwie.newstitleyanlei.fragment.dataFragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,30 +7,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-
 
 import com.bwie.newstitleyanlei.R;
-import com.bwie.newstitleyanlei.activity.WebViewActivity;
-import com.bwie.newstitleyanlei.adapter.MyBaseAdapter;
-import com.bwie.newstitleyanlei.bean.NewsTop;
-
-import com.bwie.newstitleyanlei.utils.HttPData;
+import com.bwie.newstitleyanlei.adapter.VideoAdapter;
+import com.bwie.newstitleyanlei.bean.VideoTop;
+import com.bwie.newstitleyanlei.utils.VideoData;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 import java.util.List;
 
-
 /**
- * 1.类的用途：
- * 2.作者：闫雷
- * 3.2017/2/12 20:03
+ * Created by 闫雷 on 2017/2/22.
  */
-public class NewsFragment extends Fragment implements HttPData.HttpDataCallBack<List<NewsTop>>, PullToRefreshListView.OnRefreshListener2 {
+public class NewsVideoFragment extends Fragment implements VideoData.VideoDataCallBack<List<VideoTop>>, PullToRefreshListView.OnRefreshListener2 {
 
     private PullToRefreshListView listView;
-    private MyBaseAdapter adapter;
+    private VideoAdapter adapter;
     private boolean isNeedClear;
     private int num = 0;
     private String id;
@@ -41,7 +33,7 @@ public class NewsFragment extends Fragment implements HttPData.HttpDataCallBack<
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
         id = bundle.getString("id");
-
+        Log.e("AAAA",id);
 
     }
 
@@ -64,23 +56,12 @@ public class NewsFragment extends Fragment implements HttPData.HttpDataCallBack<
         listView.setMode(PullToRefreshBase.Mode.BOTH);
         listView.setOnRefreshListener(this);
 
-        adapter = new MyBaseAdapter(getActivity());
+        adapter = new VideoAdapter(getActivity());
 
         listView.setAdapter(adapter);
-        HttPData.getData(id, num, this);
+        VideoData.getVideoData(id, num, this);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                NewsTop newsTop= (NewsTop) adapter.getItem(position-1);
 
-                String url = newsTop.getUrl_3w();
-                Intent intent=new Intent(getActivity(), WebViewActivity.class);
-
-                intent.putExtra("url",url);
-                startActivity(intent);
-            }
-        });
 
     }
 
@@ -90,10 +71,10 @@ public class NewsFragment extends Fragment implements HttPData.HttpDataCallBack<
 
 
     @Override
-    public void success(List<NewsTop> newsTops) {
+    public void success(List<VideoTop> VideoTop) {
 
 
-        adapter.addData(newsTops, isNeedClear);
+        adapter.addData(VideoTop, isNeedClear);
         adapter.notifyDataSetChanged();
         listView.onRefreshComplete();
     }
@@ -102,7 +83,7 @@ public class NewsFragment extends Fragment implements HttPData.HttpDataCallBack<
     public void onPullDownToRefresh(PullToRefreshBase refreshView) {
         num = 0;
         isNeedClear = true;
-        HttPData.getData(id, num, this);
+        VideoData.getVideoData(id, num, this);
 
     }
 
@@ -111,7 +92,6 @@ public class NewsFragment extends Fragment implements HttPData.HttpDataCallBack<
 
         num = num + 10;
         isNeedClear = false;
-        HttPData.getData(id, num, this);
+        VideoData.getVideoData(id, num, this);
     }
-
 }

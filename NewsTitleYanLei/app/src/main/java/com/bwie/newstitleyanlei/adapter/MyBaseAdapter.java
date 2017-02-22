@@ -1,6 +1,7 @@
 package com.bwie.newstitleyanlei.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -122,6 +123,7 @@ public class MyBaseAdapter extends BaseAdapter {
 
             }
             list.addAll(list2);
+
 
 
         }

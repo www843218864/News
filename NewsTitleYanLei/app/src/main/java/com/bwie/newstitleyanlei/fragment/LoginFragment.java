@@ -6,8 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.bwie.newstitleyanlei.R;
+import com.bwie.newstitleyanlei.activity.MainActivity;
 
 /**
  * 1.类的用途：
@@ -19,7 +21,10 @@ public class LoginFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=View.inflate(getActivity(), R.layout.login_fragment,null);
+        Button button= (Button) view.findViewById(R.id.day_night);
+
 
         return view;
     }
+
 }
